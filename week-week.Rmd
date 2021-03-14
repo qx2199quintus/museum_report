@@ -49,19 +49,19 @@ tue=
   arrange(desc(rate))%>%
   filter(tue==1)%>%
   select(museum,status,open,closed,phone,web,notes)
- knitr::kable(wed)
+ knitr::kable(tue)
 ```
 
 
 ## Wednesday:
 
 ```{r,echo=FALSE}
-wedn=
+wed=
   museum_crude %>%
   arrange(desc(rate))%>%
   filter(wed==1)%>%
   select(museum,status,open,closed,phone,web,notes)
- knitr::kable(wedn)
+ knitr::kable(wed)
 ```
 
 
