@@ -4,14 +4,16 @@ output:
   html_document:
     toc: true
     toc_float: true
-  
+   
 ---
 
 
 ## Hello :) ! 
 
 This report is for checking for free&discounted admission to museums around New York City listd in  [colombia arts initiative](https://artsinitiative.columbia.edu/museums/). The operation hours, contact information and other details in location are from [ google](https://www.google.com/).
-*just for practice&presentation
+*just for practice
+
+
 
 ```{r setup, include=FALSE}
 library(leaflet)
@@ -71,19 +73,28 @@ museum_crude %>%
 
 ```
 
-## Top 10 museums: 
+## Top 10 rated museums: 
 
 ```{r,echo=FALSE,message = FALSE}
 top_10=
 museum_crude %>%
 arrange(desc(rate))%>%
-  select(museum,rate)%>%
+  select(museum,rate,status)%>%
   head(10)
 top_10 %>% regulartable() %>% autofit() 
 
 ```
+## Top 10 most reviewed museums: 
 
+```{r,echo=FALSE,message = FALSE}
+top_10=
+museum_crude %>%
+arrange(desc(comment))%>%
+  select(museum,comment,rate,status)%>%
+  head(10)
+top_10 %>% regulartable() %>% autofit() 
 
+```
 
 ## Current opening during the Pandemic
 
@@ -92,11 +103,10 @@ open=
   museum_crude %>%
   filter(status=="Open")%>%
   arrange(desc(rate))%>%
-  select(museum,status,rate,location)
+  select(museum,status,rate,location,comment)
 open %>% regulartable() %>% autofit() 
 
 ```
-
 
 
 ## Operation time and current status for each museum and contact information(ordered by rate):
@@ -105,15 +115,13 @@ open %>% regulartable() %>% autofit()
 contact=
   museum_crude %>%
   arrange(desc(rate))%>%
-  select(museum,status,open,closed,phone,web,notes)
+  select(museum,status,open,closed,phone,web)
 knitr::kable(contact)
 
 ```
 
 
-
 ## Link to fast look-ups:
 
 Here is a fast look up link to get options: [Week-Week](week-week.html)
-
 

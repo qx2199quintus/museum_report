@@ -4,6 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
+   
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +31,7 @@ missmap(museum_crude, main = "Missing values vs observed")
 ```
 
 
-#Operation for each day :)
+# Operation for each day :)
 
 ## Monday:
 ```{r,echo=FALSE}
@@ -88,13 +89,6 @@ fri=
 ```
 
 
-
-
-
-
-
-
-
 ## Saturaday:
 ```{r,echo=FALSE}
 sat=
@@ -104,7 +98,6 @@ sat=
   select(museum,status,open,closed,phone,web,notes)
  knitr::kable(sat)
 ```
-
 
 ## Sunday:
 
